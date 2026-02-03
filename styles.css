@@ -1,42 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins, sans-serif;
+  font-family: "Orbitron", Poppins, sans-serif;
 }
 
 body {
   height: 100vh;
   overflow: hidden;
+  background: black;
 }
 
-/* GIF de fundo */
+
 .background {
   position: fixed;
   inset: 0;
-  background: url("https://tenor.com/pt-BR/view/super-tengen-toppa-gurren-lagann-simon-the-digger-gurren-lagann-anti-spiral-gif-13657098657597392500.gif") center/cover no-repeat;
-  z-index: -1;
+  background: url("https://tenor.com/pt-BR/view/super-tengen-toppa-gurren-lagann-simon-the-digger-gurren-lagann-anti-spiral-gif-13657098657597392500.gif")
+    center / cover no-repeat;
+  z-index: -2;
 }
 
-/* Blur */
 .overlay {
   position: fixed;
   inset: 0;
   backdrop-filter: blur(12px);
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   z-index: -1;
 }
 
-/* Card central */
+
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 10000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 18px;
+  letter-spacing: 4px;
+  cursor: pointer;
+
+  animation: startPulse 1.5s infinite;
+}
+
+@keyframes startPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+#intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+#intro.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+
+ 
+  pointer-events: none;
+}
+
+
+#skipBtn {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+
+  padding: 14px 28px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  cursor: pointer;
+
+  z-index: 10001;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#skipBtn:hover {
+  background: rgba(255, 59, 59, 0.85);
+  transform: scale(1.05);
+}
+
+
 .card {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+
+  color: white;
   text-align: center;
 }
+
 
 .avatar {
   width: 130px;
@@ -44,28 +130,153 @@ body {
   border-radius: 50%;
   border: 3px solid white;
   margin-bottom: 15px;
+
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(255, 59, 59, 0.4);
 }
 
-.links a {
-  display: block;
-  width: 220px;
-  padding: 12px;
-  margin: 8px 0;
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
+.discord-card {
+  margin: 18px 0 10px;
+  padding: 14px 18px;
+  width: 320px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  box-shadow:
+    0 0 20px rgba(88, 101, 242, 0.35),
+    0 0 40px rgba(255, 59, 59, 0.15);
+}
+
+.discord-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #5865f2;
+}
+
+.discord-info {
+  flex: 1;
+  text-align: left;
+}
+
+.discord-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.discord-status {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.discord-status.online {
+  color: #3ba55d;
+}
+
+.discord-status.idle {
+  color: #faa61a;
+}
+
+.discord-status.dnd {
+  color: #ed4245;
+}
+
+.discord-status.offline {
+  color: #747f8d;
+}
+
+
+.discord-add {
+  padding: 8px 12px;
+  font-size: 11px;
+  border-radius: 6px;
+
   text-decoration: none;
   color: white;
-  transition: 0.2s;
+  background: #5865f2;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.links a:hover {
-  background: rgba(255,255,255,0.25);
-  transform: scale(1.03);
+.discord-add:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
+}
+
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0 22px;
+}
+
+.social-icons a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 20px;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  background: rgba(255, 59, 59, 0.6);
+}
+
+
+.music-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 450px;
+  padding: 18px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 25px rgba(255, 59, 59, 0.35),
+    0 0 50px rgba(255, 59, 59, 0.2);
+}
+
+.music-box.playing {
+  box-shadow:
+    0 0 25px rgba(255, 59, 59, 0.6),
+    0 0 60px rgba(255, 59, 59, 0.35);
+}
+
+.cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.music-box.playing .cover {
+  transform: rotate(3deg) scale(1.05);
 }
 
 .music-player {
-  width: 220px;
-  color: white;
+  width: 100%;
 }
 
 .controls {
@@ -80,22 +291,31 @@ body {
   color: white;
   font-size: 22px;
   cursor: pointer;
+
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
+  color: #ff3b3b;
 }
 
 .progress-container {
   width: 100%;
   height: 6px;
-  background: rgba(255,255,255,0.2);
+  margin-top: 8px;
+
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
-  cursor: pointer;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .progress {
   height: 100%;
   width: 0%;
-  background: #ff3b3b;
-  transition: width 0.1s linear;
+  background: linear-gradient(90deg, #ff3b3b, #ff8c00, #ff3b3b);
+  box-shadow: 0 0 10px rgba(255, 59, 59, 0.8);
 }
 
 .time {
@@ -105,34 +325,40 @@ body {
   margin-top: 5px;
 }
 
-.music-box {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: rgba(0,0,0,0.35);
-  padding: 12px;
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-  width: fit-content;
-}
-
-.cover {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
 
 @media (max-width: 600px) {
   .music-box {
     flex-direction: column;
-    align-items: center;
+    width: 90%;
   }
 
   .cover {
     width: 90px;
     height: 90px;
+  }
+}
+
+.music-credit {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.65);
+
+  text-shadow:
+    0 0 6px rgba(255, 59, 59, 0.6),
+    0 0 12px rgba(255, 59, 59, 0.3);
+
+  animation: creditPulse 2.5s infinite;
+}
+
+@keyframes creditPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }
 

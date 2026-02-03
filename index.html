@@ -3,53 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <title>Hub</title>
+
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <audio id="audio"></audio>
-  <script src="script.js"></script>
+
 </head>
 <body>
 
+  
+  <div id="startScreen">
+    <span>CLIQUE PARA INICIAR</span>
+  </div>
+
+  
+  <div id="intro">
+    <div class="video-wrapper">
+      <video id="introVideo" playsinline>
+        <source src="intro-gurren-lagann.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <button id="skipBtn">SKIP</button>
+  </div>
+
  
   <div class="background"></div>
-
- 
   <div class="overlay"></div>
 
- 
-  <div class="card">
-    <img src="https://tenor.com/pt-BR/view/gurren-lagann-simon-tengen-toppa-gurren-lagann-ttgl-wind-gif-27017089.gif" class="avatar">
+  
+  <div class="card" id="hub" style="display:none;">
+
+    <img
+      src="https://tenor.com/pt-BR/view/gurren-lagann-simon-tengen-toppa-gurren-lagann-ttgl-wind-gif-27017089.gif"
+      class="avatar"
+    >
+
     <h1>Sanders</h1>
 
-    <div class="links">
-      <a href="https://github.com/felipepiaz17reichardt-star" target="_blank">GitHub <i class="bi bi-github"></i></a>
-      <a href="#" target="_blank">TikTok <i class="bi bi-tiktok"></i></a>
-      <a href="#" target="_blank">Discord <i class="bi bi-discord"></i></a>
-      <a href="#" target="_blank">Instagram <i class="bi bi-instagram"></i></a>
-      <a href="#" target="_blank">Spotify <i class="bi bi-spotify"></i></a>
-    </div>
+    <div class="discord-card">
+  <img id="dcAvatar" class="discord-avatar" />
+  
+  <div class="discord-info">
+    <div id="dcName" class="discord-name">Loading...</div>
+    <div id="dcStatus" class="discord-status">Connecting...</div>
+  </div>
 
-   <div class="music-box">
-  <img src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e" alt="Music cover" class="cover">
-
-  <div class="music-player">
-    <div class="controls">
-      <button onclick="prev()"><i class="bi bi-skip-backward-fill"></i></button>
-      <button onclick="playPause()"><i id="playIcon" class="bi bi-play-fill"></i></button>
-      <button onclick="next()"><i class="bi bi-skip-forward-fill"></i></button>
-    </div>
-
-    <div class="progress-container" onclick="seek(event)">
-  <div class="progress" id="progress"></div>
+  <a id="dcAdd" class="discord-add" target="_blank">
+    ADD
+  </a>
 </div>
 
-<span id="current">0:00</span>
-<span id="duration">0:00</span>
 
-<button onclick="playPause()">
-  <i id="playIcon" class="bi bi-play-fill"></i>
-</button>
+ 
+    <div class="social-icons">
+      <a href="https://github.com/felipepiaz17reichardt-star" target="_blank">
+        <i class="bi bi-github"></i>
+      </a>
 
-<audio id="audio"></audio>
+      <a href="https://www.instagram.com/cidilhasanders/" target="_blank">
+        <i class="bi bi-instagram"></i>
+      </a>
+
+      <a href="https://open.spotify.com/user/31nh5aud6e2o525mcoifn72mwwiu?si=8ece7658eac34b56" target="_blank">
+        <i class="bi bi-spotify"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@cidilhagameskk?lang=pt-BR" target="_blank">
+        <i class="bi bi-tiktok"></i>
+      </a>
+    </div>
+
+   
+    <div class="music-box">
+      <img
+        src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e"
+        class="cover"
+      >
+
+      <div class="music-player">
+
+        <div class="controls">
+          <button onclick="prev()">
+            <i class="bi bi-skip-backward-fill"></i>
+          </button>
+
+          <button onclick="playPause()">
+            <i id="playIcon" class="bi bi-play-fill"></i>
+          </button>
+
+          <button onclick="next()">
+            <i class="bi bi-skip-forward-fill"></i>
+          </button>
+        </div>
+
+        <div class="progress-container" onclick="seek(event)">
+          <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="time">
+          <span id="current">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+      </div>
+    </div>
+   <span class="music-credit">feito por Sanders</span>
+
+  </div>
 
 
+  
+  <audio id="audio"></audio>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
