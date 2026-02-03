@@ -5,18 +5,13 @@
   <title>Hub</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <audio id="audio"></audio>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-
- 
   <div class="background"></div>
 
- 
   <div class="overlay"></div>
 
- 
   <div class="card">
     <img src="https://tenor.com/pt-BR/view/gurren-lagann-simon-tengen-toppa-gurren-lagann-ttgl-wind-gif-27017089.gif" class="avatar">
     <h1>Sanders</h1>
@@ -29,27 +24,28 @@
       <a href="#" target="_blank">Spotify <i class="bi bi-spotify"></i></a>
     </div>
 
-   <div class="music-box">
-  <img src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e" alt="Music cover" class="cover">
+    <div class="music-box">
+      <img src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e" alt="Music cover" class="cover">
 
-  <div class="music-player">
-    <div class="controls">
-      <button onclick="prev()"><i class="bi bi-skip-backward-fill"></i></button>
-      <button onclick="playPause()"><i id="playIcon" class="bi bi-play-fill"></i></button>
-      <button onclick="next()"><i class="bi bi-skip-forward-fill"></i></button>
+      <div class="music-player">
+        <div class="controls">
+          <button onclick="prev()"><i class="bi bi-skip-backward-fill"></i></button>
+          <button onclick="playPause()"><i id="playIcon" class="bi bi-play-fill"></i></button>
+          <button onclick="next()"><i class="bi bi-skip-forward-fill"></i></button>
+        </div>
+
+        <div class="progress-container" onclick="seek(event)">
+          <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="time">
+          <span id="current">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <audio id="audio"></audio>
+      </div>
     </div>
-
-    <div class="progress-container" onclick="seek(event)">
-  <div class="progress" id="progress"></div>
-</div>
-
-<span id="current">0:00</span>
-<span id="duration">0:00</span>
-
-<button onclick="playPause()">
-  <i id="playIcon" class="bi bi-play-fill"></i>
-</button>
-
-<audio id="audio"></audio>
-
-
+  </div>
+</body>
+</html>
