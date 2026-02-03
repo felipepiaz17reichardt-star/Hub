@@ -3,122 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <title>Hub</title>
-
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
-  
+  <!-- ===== START SCREEN ===== -->
   <div id="startScreen">
     <span>CLIQUE PARA INICIAR</span>
   </div>
 
-  
+  <!-- ===== INTRO VIDEO ===== -->
   <div id="intro">
-    <div class="video-wrapper">
-      <video id="introVideo" playsinline>
-        <source src="./introgurrenlagann.mp4" type="video/mp4">
-      </video>
-    </div>
-
+    <video id="introVideo" playsinline>
+      <source src="./introgurrenlagann.mp4" type="video/mp4">
+    </video>
     <button id="skipBtn">SKIP</button>
   </div>
 
- 
+  <!-- ===== BACKGROUND E OVERLAY ===== -->
   <div class="background"></div>
   <div class="overlay"></div>
 
-  
+  <!-- ===== HUB ===== -->
   <div class="card" id="hub" style="display:none;">
-
-    <img
-      src="https://tenor.com/pt-BR/view/gurren-lagann-simon-tengen-toppa-gurren-lagann-ttgl-wind-gif-27017089.gif"
-      class="avatar"
-    >
-
+    <img src="https://tenor.com/pt-BR/view/gurren-lagann-simon-tengen-toppa-gurren-lagann-ttgl-wind-gif-27017089.gif" class="avatar">
     <h1>Sanders</h1>
 
+    <!-- DISCORD CARD -->
     <div class="discord-card">
-  <img id="dcAvatar" class="discord-avatar" />
-  
-  <div class="discord-info">
-    <div id="dcName" class="discord-name">Loading...</div>
-    <div id="dcStatus" class="discord-status">Connecting...</div>
-  </div>
-
-  <a id="dcAdd" class="discord-add" target="_blank">
-    ADD
-  </a>
-</div>
-
-
- 
-    <div class="social-icons">
-      <a href="https://github.com/felipepiaz17reichardt-star" target="_blank">
-        <i class="bi bi-github"></i>
-      </a>
-
-      <a href="https://www.instagram.com/cidilhasanders/" target="_blank">
-        <i class="bi bi-instagram"></i>
-      </a>
-
-      <a href="https://open.spotify.com/user/31nh5aud6e2o525mcoifn72mwwiu?si=8ece7658eac34b56" target="_blank">
-        <i class="bi bi-spotify"></i>
-      </a>
-
-      <a href="https://www.tiktok.com/@cidilhagameskk?lang=pt-BR" target="_blank">
-        <i class="bi bi-tiktok"></i>
-      </a>
+      <img src="https://cdn.discordapp.com/embed/avatars/0.png" class="discord-avatar" id="discordAvatar">
+      <div class="discord-info">
+        <span class="discord-name" id="discordName">loading</span>
+        <span class="discord-status" id="discordStatus">offline</span>
+      </div>
+      <a href="https://discord.com/users/SEU_ID_AQUI" target="_blank" class="discord-add">Adicionar no Discord</a>
     </div>
 
-   
+    <!-- SOCIAL ICONS -->
+    <div class="social-icons">
+      <a href="https://github.com/felipepiaz17reichardt-star" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="#" target="_blank"><i class="bi bi-spotify"></i></a>
+      <a href="#" target="_blank"><i class="bi bi-tiktok"></i></a>
+    </div>
+
+    <!-- MUSIC PLAYER -->
     <div class="music-box">
-      <img
-        src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e"
-        class="cover"
-      >
-
+      <img src="https://preview.redd.it/i-just-finished-it-absolute-cinema-v0-bpqyue2f78he1.jpeg?width=1022&format=pjpg&auto=webp&s=8d585407816e6005374ea2ad99521397c184017e" class="cover">
       <div class="music-player">
-
         <div class="controls">
-          <button onclick="prev()">
-            <i class="bi bi-skip-backward-fill"></i>
-          </button>
-
-          <button onclick="playPause()">
-            <i id="playIcon" class="bi bi-play-fill"></i>
-          </button>
-
-          <button onclick="next()">
-            <i class="bi bi-skip-forward-fill"></i>
-          </button>
+          <button onclick="prev()"><i class="bi bi-skip-backward-fill"></i></button>
+          <button onclick="playPause()"><i id="playIcon" class="bi bi-play-fill"></i></button>
+          <button onclick="next()"><i class="bi bi-skip-forward-fill"></i></button>
         </div>
-
         <div class="progress-container" onclick="seek(event)">
           <div class="progress" id="progress"></div>
         </div>
-
         <div class="time">
           <span id="current">0:00</span>
           <span id="duration">0:00</span>
         </div>
-
+        <p style="margin-top:10px; font-size:12px; opacity:0.6;">feito por Sanders</p>
       </div>
     </div>
-   <span class="music-credit">feito por Sanders</span>
-
   </div>
 
-
-  
   <audio id="audio"></audio>
-
-
   <script src="script.js"></script>
-
 </body>
 </html>
-
-
